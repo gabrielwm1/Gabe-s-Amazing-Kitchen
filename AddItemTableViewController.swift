@@ -25,13 +25,15 @@ class itemDetailViewController: UITableViewController {
     @IBOutlet weak var addBarButton: UIBarButtonItem!
     @IBOutlet weak var textField: UITextField!
     
+    @IBOutlet weak var colorTextField: UITextField!
     @IBAction func cancel(_ sender: Any) {
         delegate?.itemDetailViewControllerDidCancel(self)
     }
     
     @IBAction func done(_ sender: Any) {
-        if let item = itemToEdit, let text = textField.text {
+        if let item = itemToEdit, let text = textField.text, let colorText = colorTextField.text {
             item.text = text
+            item.color = colorText
             delegate?.itemDetailViewController(self, disFinishEditing: item)
         } else {
             if let item = todoList?.newTodo() {

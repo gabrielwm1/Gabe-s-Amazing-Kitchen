@@ -12,6 +12,7 @@ class checklistItem: NSObject {
     
     var text = ""
     var checked = false
+    var color = ""
     
     func toggleChecked() {
         checked = !checked
